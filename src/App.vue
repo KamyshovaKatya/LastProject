@@ -1,60 +1,85 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-app id="app">
+        <v-navigation-drawer
+        color="green"
+        dark
+        expand-on-hover
+        hide-overlay
+        permanent
+        right
+        app>
+        <v-list
+            nav 
+            shaped
+            dense
+        >
+            <v-list-item>
+                <v-list-item-avatar>
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg">
+                </v-list-item-avatar>
+            </v-list-item>
+            
+            <v-list-item-content class="text-left">
+                <v-list-item-title class="font-weight-black">SocialLink</v-list-item-title>
+                <v-list-item-subtitle>Leanne Graham</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-divider class="my-3"></v-divider>
+        
+        <v-list-item link to="/" exact>
+            <v-link-item-icon>
+                <v-icon>mdi-home-outline</v-icon>
+            </v-link-item-icon>
+            
+            <v-list-item-content>
+                <v-list-item-title class="text-left mar">Главная</v-list-item-title>
+            </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="/users/1" exact>
+            <v-link-item-icon>
+                <v-icon>mdi-account</v-icon>
+            </v-link-item-icon>
+            
+            <v-list-item-content>
+                <v-list-item-title class="text-left mar">Мой профиль</v-list-item-title>
+            </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="/users" exact>
+            <v-link-item-icon>
+                <v-icon>mdi-account-multiple-plus-outline</v-icon>
+            </v-link-item-icon>
+            
+            <v-list-item-content>
+                <v-list-item-title class="text-left mar">Найти друзей</v-list-item-title>
+            </v-list-item-content>
+        </v-list-item>
+        </v-list>
+        </v-navigation-drawer>
+        
+         <v-content class="px-12 py-3">
+          <v-container fluid>
+            <router-view/>
+          </v-container>
+        </v-content>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+    </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
     //
   }),
 };
 </script>
+
+
+<style>
+    h2 {
+        font-weight: normal;
+        margin-top: 30px;
+    }
+    .mar {
+        margin-left: 10px;
+    }
+</style>
